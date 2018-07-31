@@ -1,0 +1,16 @@
+project name
+--------------
+pet -application
+
+Description
+-------------
+pet -application is a simple multi module application.User has following facilities through this application.
+
+1.User can add new pet information
+2.user can serch pet information using pet name
+3.User can edit pet details using pet name
+
+
+
+
+
