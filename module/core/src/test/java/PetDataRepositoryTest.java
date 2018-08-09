@@ -10,25 +10,29 @@
  *               property rights in these materials.
  */
 
-import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 import pet.information.applications.domain.Pet;
 import pet.information.applications.repository.PetDataRepository;
 import pet.information.applications.repository.PetDataRepositoryImp;
-
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
-
+import java.util.Properties;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotNull;
 
-public class TestAnnotations {
-
+public class PetDataRepositoryTest {
     private static PetDataRepository dataRepository;
 
     @BeforeClass
     public static void init() throws Exception {
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/pet", "shanika", "beyondm");
+        InputStream input = null;
+        Properties prop = new Properties();
+        input = new FileInputStream("/home/shanika/MavenProjects/pet-application/module/core/src/test/resources/config.properties");
+        prop.load(input);
+        Connection connection = DriverManager.getConnection(prop.getProperty("port")+prop.getProperty("database"),prop.getProperty("user"),prop.getProperty("password"));
         dataRepository = new PetDataRepositoryImp(connection);
     }
 
@@ -51,20 +55,10 @@ public class TestAnnotations {
         assertNotNull(pet);
         assertEquals(10, pet.getWeight());
         assertEquals(10, pet.getHeight());
-
     }
 
     @Test
-    public void searchPetByOwnerTest() {
-        Pet pet = dataRepository.getPetDetailsByOwnerName("Nimmi");
-        assertNotNull(pet);
-        assertEquals("Blacky", pet.getName());
-        assertEquals(2, pet.getHeight());
-        assertEquals(3, pet.getWeight());
-    }
-
-    @Test
-    public void editPetByPetNameTest(){
+    public void editPetByPetNameTest() {
         Pet pet = new Pet();
         pet.setName("editName");
         pet.setWeight(10);
@@ -72,10 +66,6 @@ public class TestAnnotations {
         pet.setId(40);
         dataRepository.editPetByPetName(pet);
         assertNotNull(pet);
-        assertEquals("editName",pet.getName());
-
+        assertEquals("editName", pet.getName());
     }
-
-
-
 }

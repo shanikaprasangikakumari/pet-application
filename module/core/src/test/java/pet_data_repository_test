@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ Copyright (c) Copyright 2010-2018 hSenid Mobile Solutions (Pvt) Limited.
+  ~               All Rights Reserved.
+  ~
+  ~               These materials are unpublished, proprietary, confidential source code of
+  ~               hSenid Mobile Solutions (Pvt) Limited and constitute a TRADE SECRET
+  ~               of hSenid Mobile Solutions (Pvt) Limited.
+  ~
+  ~               hSenid Mobile Solutions (Pvt) Limited retains all title to and intellectual
+  ~               property rights in these materials.
+  -->
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name = "Test Pet Data Repository">
+    <test name = "Test Pet Data Repository">
+        <classes>
+            <class name = "PetDataRepositoryTest" />
+        </classes>
+    </test>
+</suite>

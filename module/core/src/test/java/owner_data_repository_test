@@ -1,5 +1,4 @@
-<?xml version = "1.0" encoding = "UTF-8"?>
-
+<?xml version="1.0" encoding="UTF-8" ?>
 <!--
   ~ Copyright (c) Copyright 2010-2018 hSenid Mobile Solutions (Pvt) Limited.
   ~               All Rights Reserved.
@@ -11,12 +10,10 @@
   ~               hSenid Mobile Solutions (Pvt) Limited retains all title to and intellectual
   ~               property rights in these materials.
   -->
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name = "Sample test Suite">
-   <test name = "Sample test">
-      <classes>
-         <class name = "TestAnnotations" />
-      </classes>
-   </test>
+<suite name = "Test Owner Data Repository">
+    <test name = "Test Owner Data Repository">
+        <classes>
+            <class name = "OwnerDataRepositoryTest" />
+        </classes>
+    </test>
 </suite>
-
